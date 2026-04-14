@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neo4j + LLM CRUD System</title>
+    <script src="/static/app.js" defer></script>
+    <style>body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e293b;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #1e3a8a, #0f172a);
+}
+
+.hero h1 {
+    font-size: 32px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.8;
+}
+
+.card {
+    background: #1e293b;
+    margin: 30px auto;
+    padding: 25px;
+    width: 80%;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    background: #38bdf8;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+pre {
+    background: #0b1220;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #1e293b;
+    margin-top: 40px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}</style>
+</head>
+
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar">
+    <div class="logo">Neo4j LLM System</div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#nlq">Natural Query</a></li>
+        <li><a href="#crud">CRUD</a></li>
+    </ul>
+</nav>
+
+<!-- welcome  -->
+<section id="home" class="hero">
+    <h1>Welcome to Neo4j + LLM CRUD System</h1>
+    <p>
+        Convert natural language into GraphQL/Cypher queries using an open-source LLM (Ollama)
+        and interact with Neo4j graph database in real time.
+    </p>
+</section>
+
+<!-- Natural Language Query -->
+<section id="nlq" class="card">
+    <h2>Natural Language Query (LLM → Neo4j)</h2>
+
+    <textarea id="input" placeholder="Example: Create a character named Luke Skywalker"></textarea>
+
+    <button onclick="runNL()">Run Query</button>
+
+    <h3>Output</h3>
+    <pre id="output"></pre>
+</section>
+
+<!-- CRUD SECTION -->
+<section id="crud" class="card">
+    <h2>CRUD Operations</h2>
+
+    <div class="button-group">
+        <button onclick="createNode()">Create Character</button>
+        <button onclick="getAll()">Get Characters</button>
+    </div>
+
+    <h3>Result</h3>
+    <pre id="crud-output"></pre>
+</section>
+
+<!-- footer-->
+<footer class="footer">
+    <p>CS5600 Programming Assignment 2 | Neo4j + Flask + LLM (Ollama)</p>
+    <p>Student ID: 700773075</p>
+</footer>
+
+</body>
+</html>
