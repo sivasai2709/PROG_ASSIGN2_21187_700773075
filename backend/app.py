@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
-from resolvers import (
+from backend.resolvers import (
     execute_nl_query,
     create_node,
     get_all,
