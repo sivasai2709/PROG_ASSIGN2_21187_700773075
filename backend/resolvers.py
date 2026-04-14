@@ -1,5 +1,5 @@
-from db import run_query
-from llm import natural_to_cypher
+from backend.db import run_query
+from backend.llm import natural_to_cypher
 
 def execute_nl_query(natural_text):
     cypher = natural_to_cypher(natural_text)
